@@ -21,3 +21,51 @@ Use this template as a way to quickly start any new project with sass. All you g
 3. Clone this repo with git clone git@github.com:richardomollo/sass-starter-template.git or download the zip.
 4. Run preprose and your folder as the project and you are good to go. 
 
+# Directory Structure
+
+<pre>
+sass-starter-template
+   |
+   |__ css
+   |   |
+   |   |__ main.css
+   |   
+   |__ fonts
+   |   |
+   |   |__ gearedslab-light-webfont.eot
+   |   |__ gearedslab-light-webfont.svg
+   |   |__ gearedslab-light-webfont.ttf
+   |   |__ gearedslab-light-webfont.woff
+   |   
+   |__ images
+   |   |
+   |__ js
+   |   |
+   |   |__ main.js
+   |   
+   |__ sass
+   |   |
+   |   |__ .sass-cache
+   |   |
+   |   |__ _animate.scss
+   |   |__ _ie7.scss
+   |   |__ _ie8.scss
+   |   |__ _ie9.scss
+   |   |__ _layout.scss
+   |   |__ _media-queries.scss
+   |   |__ _mixins.scss
+   |   |__ _theme.scss
+   |   |__ _typography.scss
+   |   |__ main.scss
+   |
+   |__ index.php
+   |   
+   |__ prepros.cfg
+   |
+   |__ README.md
+   
+ </pre>
+
+# Bugs & Support
+
+Developed by @Richardomolo. Please list all bugs and feature requests in the Github issue tracker.
