@@ -1,8 +1,6 @@
-# sass-starter-template
+# SCALABLE AND MAINTAINABLE SASS CSS STARTER TEMPLATE
 
-Sass is a scripting language that is interpreted into CSS. SassScript is the scripting language itself. 
-
-Please refer to http://sass-lang.com/ for more info on sass
+Making CSS scalable and maintainable is a major concern for every front-end developer and large IT companies. ITCSS has an answer. I have combined SASS and ITCSS to create a scalable and maintainable SASS CSS starter template that allow for easy website development and further maintenance.
 
 # Getting started 
 
@@ -10,9 +8,6 @@ Its really quick to get satrted with sass. Sass is written in Ruby, and distribu
 
 http://sass-lang.com/install
 
-# This starter template
-
-Use this template as a way to quickly start any new project with sass. All you get is text and structured sass files that output to main.css
 
 # Getting Started with this template
 
