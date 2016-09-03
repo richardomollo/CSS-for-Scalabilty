@@ -24,45 +24,49 @@ Use this template as a way to quickly start any new project with sass. All you g
 # Directory Structure
 
 <pre>
-sass-starter-template
-   |
-   |__ css
-   |   |
-   |   |__ main.css
-   |   
-   |__ fonts
-   |   |
-   |   |__ gearedslab-light-webfont.eot
-   |   |__ gearedslab-light-webfont.svg
-   |   |__ gearedslab-light-webfont.ttf
-   |   |__ gearedslab-light-webfont.woff
-   |   
-   |__ images
-   |   |
-   |__ js
-   |   |
-   |   |__ main.js
-   |   
-   |__ sass
-   |   |
-   |   |__ .sass-cache
-   |   |
-   |   |__ _animate.scss
-   |   |__ _ie7.scss
-   |   |__ _ie8.scss
-   |   |__ _ie9.scss
-   |   |__ _layout.scss
-   |   |__ _media-queries.scss
-   |   |__ _mixins.scss
-   |   |__ _theme.scss
-   |   |__ _typography.scss
-   |   |__ main.scss
-   |
-   |__ index.php
-   |   
-   |__ prepros.cfg
-   |
-   |__ README.md
+.
+├── README.md
+├── css
+│   └── main.css
+├── fonts
+│   ├── gearedslab-light-webfont.eot
+│   ├── gearedslab-light-webfont.svg
+│   ├── gearedslab-light-webfont.ttf
+│   └── gearedslab-light-webfont.woff
+├── images
+├── index.php
+├── js
+│   └── main.js
+├── prepros.cfg
+└── sass
+    ├── _components.avatars.scss
+    ├── _components.buttons.scss
+    ├── _components.page-title.scss
+    ├── _components.testimonials.scss
+    ├── _elements.headings.scss
+    ├── _elements.images.scss
+    ├── _elements.links.scss
+    ├── _elements.lists.scss
+    ├── _elements.page.scss
+    ├── _elements.quotes.scss
+    ├── _generic.animate.scss
+    ├── _generic.box-sizing.scss
+    ├── _generic.normalize.scss
+    ├── _generic.print.scss
+    ├── _generic.reset.scss
+    ├── _generic.shared.scss
+    ├── _objects.layout.scss
+    ├── _objects.media.scss
+    ├── _objects.wrappers.scss
+    ├── _settings.colors.scss
+    ├── _settings.global.scss
+    ├── _tools.mixins.scss
+    ├── _typography.scss
+    ├── _utilities.links.scss
+    ├── _utilities.widths.scss
+    └── main.scss
+
+5 directories, 35 files
    
  </pre>
 
