@@ -1,0 +1,407 @@
+/*mixin font-size*/
+
+@mixin font-size($font-size, $line-height: auto) {
+    font-size: $font-size;
+    font-size: ($font-size / $base-font-size) * 1rem;
+
+    @if $line-height == auto {
+        line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+    }
+
+    @else {
+
+        @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+            line-height: $line-height;
+        }
+
+        @elseif ($line-height != none and $line-height != false) {
+            @warn "D’oh! ‘#{$line-height}’ is not a valid value for `line-height`."
+        }
+
+    }
+
+}
+
+
+/*
+    Mixin responsive breakpoints
+    -----------------------------------------------------------------------------------------------------
+    Usage Example:
+    .page-wrap {
+      width: 75%;
+      @include breakpoint(large) { width: 60%; }
+      @include breakpoint(medium) { width: 80%; }
+      @include breakpoint(small) { width: 95%; }
+    }
+*/
+
+@mixin breakpoint($point) {
+    @if $point == large {
+        @media (min-width: 64.375em) { @content; }
+    }
+    @else if $point == medium {
+        @media (min-width: 50em) { @content; }
+    }
+    @else if $point == small {
+        @media (min-width: 37.5em)  { @content; }
+    }
+}
+
+/*
+    Mixin retina images
+    -----------------------------------------------------------------------------------------------------
+    Usage Example:
+    .div.logo {
+       background: url("logo.png") no-repeat;
+       @include image-2x("logo2x.png", 100px, 25px);
+    }
+*/
+
+@mixin retina-image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that is scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+/*
+    Mixin clear fix
+    -----------------------------------------------------------------------------------------------------
+    Usage Example:
+    .article {
+         @include clearfix();
+    }
+*/
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/*
+    Mixin box sizing
+    -----------------------------------------------------------------------------------------------------
+    Usage Example:
+    *,
+    *:after,
+    *:before {
+      @include box-sizing(border-box);
+    }
+*/
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; /*Safari <= 5*/
+     -moz-box-sizing: $box-model; /*Firefox <= 19*/
+          box-sizing: $box-model;
+}
+
+/*
+    mixin border-adius
+    -----------------------------------------------------------------------------------------------------
+    Always a handy mixin. Set every border radius or just a single side without worrying about all those prefixes.
+    Usage Example:
+
+    button {
+      @include border-radius(5px);
+    }
+
+    .submit-button {
+      @include border-top-radius(10px);
+      @include border-right-radius(8px);
+      @include border-bottom-radius(10px);
+      @include border-left-radius (6px);
+    }
+*/
+
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+/*Single side border-radius*/
+
+@mixin border-top-radius($radius) {
+    -webkit-border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+    -webkit-border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+    background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+    -webkit-border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+    -webkit-border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+    background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+    -webkit-border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+    -webkit-border-bottom-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+    background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+    -webkit-border-bottom-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+    -webkit-border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+    background-clip: padding-box;
+}
+
+/*
+    Mixin Opacity
+    -----------------------------------------------------------------------------------------------------
+    Set the opacity for all browsers and provide a filter fallback for IE8.
+
+    Usage Example:
+
+    .article-heading {
+      @include opacity(0.8);
+    }
+*/
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+
+/*
+    Mixin center-block
+    -----------------------------------------------------------------------------------------------------
+    Requires width or max-width to be set.
+
+    Usage Example:
+
+    .footer-wrap {
+        width: 450px;
+        @include center-block;
+    }
+*/
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+    Mixin text-truncate
+    -----------------------------------------------------------------------------------------------------
+    Requires  Requires the element to be block or inline-block.
+
+    Usage Example:
+
+    .text-truncate {
+        @include text-truncate;
+    }
+*/
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*
+    Mixin absolute-position
+    --------------------------------------------------------------------------------------------------------
+    Usage Example:
+
+    .abs {
+      @include absolute-position(10px, 10px, 5px, 15px);
+    }
+*/
+
+@mixin absolute-position ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+}
+
+/*
+    Mixin fixed-position
+    --------------------------------------------------------------------------------------------------------
+    Usage Example:
+
+    .abs {
+      @include fixed-position(10px, 10px, 5px, 15px);
+    }
+*/
+
+@mixin fixed-position ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: fixed;
+}
+
+/*
+    Mixin relative-position
+    --------------------------------------------------------------------------------------------------------
+    Usage Example:
+
+    .abs {
+      @include absolute-position(10px, 10px, 5px, 15px);
+    }
+*/
+
+@mixin relative-position ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: relative;
+}
+
+/*
+    Mixin line-height
+    --------------------------------------------------------------------------------------------------------
+    Usage Example:
+
+    body {
+      @include line-height (16);
+    }
+*/
+@mixin line-height($heightValue: 12 ){
+    line-height: $heightValue + px; //fallback for old browsers
+    line-height: (0.125 * $heightValue) + rem;
+}
+
+/*
+    Mixin Animations and keyframes
+    --------------------------------------------------------------------------------------------------------
+    Usage Example:
+
+    @include keyframes(slide-down) {
+      0% { opacity: 1; }
+      90% { opacity: 0; }
+    }
+
+    .element {
+      width: 100px;
+      height: 100px;
+      background: black;
+      @include animation('slide-down 5s 3');
+    }
+*/
+
+/* 1. Keyframes*/
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+/* 1. animations*/
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+/*
+    Mixin transition
+    --------------------------------------------------------------------------------------------------------
+    Usage Example:
+
+    a {
+      color: gray;
+      @include transition(color .3s ease);
+        &:hover {
+            color: black;
+        }
+    }
+*/
+
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+/*
+    Mixin visuallyhidden
+    --------------------------------------------------------------------------------------------------------
+    Usage Example:
+
+    .visually-hidden {
+      @include visuallyhidden;
+    }
+*/
+@mixin visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+
+/*  
+    @mixin cover-background
+    ----------------------------------------------------------------------------------------------------------
+    Creates a full width background image on an element. 
+
+    -Parameters:
+    --Required:
+    $img-uri: URI of image you want to use as the background 
+
+    --Optional:
+    $background-top:  Defaults to "center - sets the "top" value of the background position
+    $background-left: Defaults to "center - sets the "left" value of the background position.
+    $background-attachment: Defaults to "fixed" - allows you to specify background attachment.
+
+    expample usage
+
+    html { 
+        @include cover-background('https://s3-us-west-2.amazonaws.com/s.cdpn.io/44303/GODZILLA-NEO-WALLPAPER.jpg');
+    }
+*/
+@mixin cover-background($img-uri, $background-top:"center", $background-left:"center", $background-attachment:"fixed") {
+  background: url($img-uri) no-repeat unquote($background-top) unquote($background-left) unquote($background-attachment); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+}
+

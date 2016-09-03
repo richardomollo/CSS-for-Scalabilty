@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Starter Template for Sass </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+        <title> SCALABLE AND MAINTAINABLE SASS ARCHITECTURE STARTER TEMPLATE </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
@@ -20,6 +20,13 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <h1>hello world!</h1>
+        <div class="o-wrapper">
+
+            <div class="c-page-title">
+                <h1 class="c-page-title__main">Scalable and maintainable sass css architecture starter template</h1>
+                <h2 class="c-page-title__sub">Write css at scale</h2>
+            </div>
+
+        </div>
     </body>
 </html>
