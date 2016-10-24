@@ -1,7 +1,59 @@
 .o-wrapper {
-    max-width: 940px;
+    max-width: 1200px;
     margin-right: auto;
     margin-left:  auto;
     padding-right: 10px;
     padding-left:  10px;
+}
+	
+/* 
+
+	The purpose of the o-grid-wrapper is to set the width of the entire grid. 
+	The width of the o-grid-wrapper is generally 100%, but you might want to set a max-width for larger displays.
+
+*/
+
+.o-grid-wrapper {
+    max-width : 1200px;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+/*
+	the perdose of o-grid-row is to keep the columns inside it from overflowing onto other rows. To achieve this, 
+	we'll use the clearfix hack to make sure everything inside the o-grid-row stays inside the row.
+*/
+
+.o-grid-row:after,
+.o-grid-row:after {
+	@include clearfix()
+}
+
+
+/*
+	prevent floated columns from stacking up a min-height of 1px as well as float them.
+	total number of columns by the width of the container.
+*/
+
+[class*='u-grid-col-'] {
+    float: left;
+    min-height: 1px; 
+    width: 16.66%; 
+    /*-- our gutter --*/
+    padding: 12px;
+    /* you can remove this */ 
+    background-color: $color-grey-lighter;
+}
+
+.outline, .outline *{
+    outline: 1px solid $color-grey-lines-light; 
+}
+
+/*-- some extra column content styling --*/
+[class*='u-grid-col-'] > p {
+     background-color: $color-white; 
+     padding: 0;
+     margin: 0;
+     text-align: center; 
+     color: $color-gray-dark; 
 }

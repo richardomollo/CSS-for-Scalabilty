@@ -1,11 +1,14 @@
 // Color palette
 $color-brand:           #BADA55;
 $color-brand-highlight: lighten($color-brand, 15%);
-$color-brand-shadow:     darken($color-brand, 15%);
+$color-brand-shadow:    darken($color-brand, 15%);
 
+$color-white:           #fff;
 $color-gray:            #666;
 $color-gray-light:      #ccc;
 $color-gray-dark:       #333;
+$color-grey-lighter:    #f5f5f5;
+$color-grey-lines-light: #dedddd; 
 
 $color-highlight:       rgba(255, 255, 255, 0.05);
 $color-shadow:          rgba(0, 0, 0, 0.05);

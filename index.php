@@ -27,6 +27,39 @@
                 <h2 class="c-page-title__sub">Write css at scale</h2>
             </div>
 
+            <h2 class="c-page-title__sub">The Grid</h2>
+            <!-- grid container -->
+            <div class="o-grid-wrapper outline">
+                <div class="o-grid-row">
+                    <div class="u-grid-col-1"><p>u-grid-col-1</p></div> 
+                    <div class="u-grid-col-1"><p>u-grid-col-1</p></div> 
+                    <div class="u-grid-col-1"><p>u-grid-col-1</p></div> 
+                    <div class="u-grid-col-1"><p>u-grid-col-1</p></div> 
+                    <div class="u-grid-col-1"><p>u-grid-col-1</p></div> 
+                    <div class="u-grid-col-1"><p>u-grid-col-1</p></div> 
+                </div> 
+                <div class="o-grid-row">
+                    <div class="u-grid-col-2"><p>u-grid-col-2</p></div> 
+                    <div class="u-grid-col-2"><p>u-grid-col-2</p></div> 
+                    <div class="u-grid-col-2"><p>u-grid-col-2</p></div> 
+                </div> 
+                <div class="o-grid-row">
+                    <div class="u-grid-col-3"><p>u-grid-col-3</p></div> 
+                    <div class="u-grid-col-3"><p>u-grid-col-3</p></div> 
+                </div>
+                <div class="o-grid-row">
+                    <div class="u-grid-col-4"><p>u-grid-col-4</p></div> 
+                    <div class="u-grid-col-2"><p>u-grid-col-2</p></div> 
+                </div> 
+                <div class="o-grid-row">
+                    <div class="u-grid-col-5"><p>u-grid-col-5</p></div> 
+                    <div class="u-grid-col-1"><p>u-grid-col-1</p></div> 
+                </div> 
+                <div class="o-grid-row">
+                    <div class="u-grid-col-6"><p>u-grid-col-6</p></div> 
+                </div>  
+            </div>
+
         </div>
     </body>
 </html>
